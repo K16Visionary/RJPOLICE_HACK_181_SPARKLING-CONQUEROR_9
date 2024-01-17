@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Report Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        #checkStatusForm {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        #checkStatusForm label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        #checkStatusForm input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        #checkStatusForm button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+    .home-button {
+        background-color: #4CAF50; /* Green background color */
+        border: none; /* Remove border */
+        color: white; /* Text color */
+        padding: 10px 20px; /* Add padding */
+        text-align: center; /* Center align text */
+        text-decoration: none; /* Remove underline */
+        display: inline-block; /* Display as inline-block */
+        font-size: 16px; /* Font size */
+        margin-bottom: 20px; /* Add some spacing */
+        cursor: pointer; /* Change cursor to pointer */
+        transition: background-color 0.3s; /* Add transition effect */
+    }
+
+    .home-button:hover {
+        background-color: #45a049; /* Darker green background color on hover */
+    }
+
+        
+        #statusContainer {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Add a button at the top to go to the home page -->
+    <button class="home-button" onclick="window.location.href = 'index.html';">Home</button>
+
+    <h2>Check Report Status</h2>
+    <form id="checkStatusForm">
+        <label for="registerNumber">Enter your Acknowledgement number:</label>
+        <input type="text" id="registerNumber" name="registerNumber" required>
+        <button type="submit">Check Status</button>
+    </form>
+
+    <div id="statusContainer"></div>
+
+    <!-- Add your JavaScript code here -->
+    <script>
+        // Attach event listener to the form submit event
+        document.getElementById("checkStatusForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting and refreshing the page
+
+            // Retrieve the register number entered by the victim
+            var registerNumber = document.getElementById("registerNumber").value;
+
+            // Make an AJAX request to fetch the status
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    var status = this.responseText;
+                    document.getElementById("statusContainer").innerHTML = "Report Status: " + status;
+                }
+            };
+            xhr.open("GET", "fetch_status.php?registerNumber=" + registerNumber, true);
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
+</html>

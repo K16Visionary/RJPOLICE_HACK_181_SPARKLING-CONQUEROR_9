@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/chatbotstyle.css">
+    <title>Crime Reporting System- Report A Crime</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+	<script src="script.js" defer></script>
+	<style>
+		*{
+			margin: 0px;
+			padding:0px;
+			box-sizing: border-box;
+			font-family: sans-serif;
+			
+		}
+		body {
+    		margin: 0;
+   			padding: 0;
+   			background-image: url("image/img1.jpg");
+    		background-size: cover;
+    		background-position: center;
+    		background-repeat: no-repeat;
+    		height: 100vh;
+			}
+		.image {
+ 			   display: none;
+			}
+		nav{
+			width: 100%;
+			height: 75px;
+			background-color: black;
+			line-height: 75px;
+			padding:0px 100px;
+			position: fixed;
+			z-index : 1;
+		}
+		nav .logo {
+			font-weight: bold;
+			letter-spacing: 1.5px;
+		}
+		nav .logo p{
+			font-size: 20px;
+			float: left;
+			color: white;
+			text-transform: uppercase;
+		}
+		nav ul{
+			float:right;
+		}
+		nav ul li{
+			display: inline-block;
+			list-style: none;
+		}
+		nav ul li a{
+			color: white;
+			text-decoration: none;
+			font-size: 18px;
+			text-transform: uppercase;
+			padding: 0px 32px;
+		}
+		nav ul li a:hover{
+			color:#cccccc;
+		}
+		
+		.image{
+			width: 100%;
+			position: absolute;
+			z-index: -1;
+			opacity:0.7;
+		}
+		
+		.heading{
+			color: blue;
+			background-color: white;
+			font-weight: 600;
+			font-size: 1.5em;
+			margin-bottom: 20px;
+			max-height: 30%;
+			float: left;
+			display: inline-block;
+			letter-spacing: 1px;
+			
+		}
+		
+		/* CONTAINER */
+		.container{
+			max-width: 80%;
+			/*background-color: rgb(198, 152, 241);*/
+			padding: 34px;
+			margin: auto;
+		}
+		.container h1, p{
+			text-align: center;
+		}
+		p{
+			font-size: 17px;
+		}
+		.news-container {
+     		 display: flex;
+     		 justify-content: center;
+     		 align-items: center;
+     		 height: 100vh;
+    	}
+		.news-box {
+			border: 2px solid #000;
+      		padding: 10px;
+     		width: 300px;
+      		position: absolute;
+     		left: 190px;
+      		top: 190px;
+     		background-color: #f1f1f1;
+			overflow: auto;
+			max-height: 200px;
+        }
+    
+		.news-heading {
+			font-size: 18px;
+			font-weight: bold;
+			margin-bottom: 10px;
+			top: 190px;
+			left: 890px;
+		}
+    
+		.news-content {
+			font-size: 14px;
+      		line-height: 1.5;
+      		text-indent: 10px;
+     		margin-bottom: 10px
+	
+
+		}
+
+		input, textarea{
+			border: 2px solid black;
+			border-radius: 6px;
+			outline: none;
+			width: 80%;
+			margin: 11px 0px;
+			padding: 7px;
+			font-size: 16px;
+		}
+
+		form{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+		}
+		.btn{
+			color:white;
+			background:purple;
+			padding: 10px;
+			font-size: 16px;
+			border: 2px solid white;
+			border-radius: 14px;
+			cursor: pointer;
+		}
+		.submitmsg{
+			font-size: 25px;
+			color: rgb(25, 102, 25);
+		}
+	
+		
+		
+		/* FOOTER */
+		.footer{
+			background-color: black;
+			color: white;
+			height: 400px;
+			bottom: 50px;
+			left: 0;
+			position: sticky;
+			
+		}
+		
+		.footer .footer-content{
+			
+			height: 350px;
+		}
+		.footer .footer-bottom{
+			background-color: rgb(153,51,153);
+			color: rgb(255,255,153);
+			height: 50px;
+			text-align: center;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			padding-top: 20px;
+			width: 100%;
+		}
+		.form-container {
+			max-width: 320px;
+			margin: 0 auto;
+			position: absolute;
+			top: 190px;
+			left: 890px;
+			padding: 20px;
+			background-color: #f2f2f2;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.form-container label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		.form-container select,
+		.form-container button {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+			border-radius: 4px;
+			border: 1px solid #ccc;
+			margin-bottom: 10px;
+			background-color: #fff;
+			transition: border-color 0.3s ease;
+		}
+
+		.form-container select:focus,
+		.form-container button:focus {
+			outline: none;
+			border-color: #6c63ff;
+		}
+
+		.form-container button {
+			background-color: #6c63ff;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+			font-weight: bold;
+			transition: background-color 0.3s ease;
+		}
+
+		.form-container button:hover {
+			background-color: #8b8bbb;
+		}
+		.action-button:active {
+			transform: translate(0px,5px);
+			-webkit-transform: translate(0px,5px);
+			border-bottom: 1px solid;
+			
+		}
+		.action-button:hover {
+			color: #fff;
+		}
+		.red:hover {
+			background-color: #18356f;
+			border-bottom: 5px solid #11254d;
+		}
+		.action-button:active {
+			transform: translate(0px,5px);
+			-webkit-transform: translate(0px,5px);
+			border-bottom: 1px solid;
+		}
+		.action-button:hover {
+			color: #fff;
+		}	
+		.red {
+			background-color: #E00000;
+			border-bottom: 5px solid #9b0303;
+			border: 2px solid #000;
+			padding: 10px;
+			width: 300px;
+			position: absolute;
+			left: 190px;
+			top: 390px;
+		}
+
+
+		.logo-text:hover {
+		/* Styles to apply when hovering over the logo-text */
+		color: rgb(156, 145, 46);
+		text-decoration: underline;
+		}
+		.logo-image {
+		/* Your logo image styles */
+		max-width: 100%;
+		height: 100px;
+		position: absolute;
+			left: 15px;
+			top: 85px;
+		}
+	</style>
+</head>
+<body>
+	<img src="image/img1.jpg" class="image" alt="background image"> 
+	<nav>
+		<div class="logo" >
+			<p class="logo-text">Cyber Crime Reporting Portal </p>
+			<ul>
+				<li><a href="about.html">About</a></li>
+				<li><a href="Police Login.html">Police LOGIN</a></li>
+				<li><a href="Bank Login.html">Bank LOGIN</a></li>
+				<li><a href="check_status.html">Check Report Status</a></li>
+			</ul>
+		</div>
+		<img src="image/Rajasthan_Police_Logo.jpg" alt="Logo" class="logo-image">
+	</nav>
+	<br><br><br><br>
+	
+	<div class="page-wrapper">
+			<div class="form-container">
+				<form id="optionForm">
+				  <label for="option">Select an option:</label>
+				  <select id="option" name="option">
+					<option value="home1">Financial Crimes</option>
+					<option value="home2">Data Breaches</option>
+					<option value="home3">Online Harassment and Stalking</option>
+					<option value="home4">Intellectual Property Crimes</option>
+					<option value="home5">Cyber Terrorism</option>
+					<option value="home6">Online Extortion</option>
+					<option value="home7">Phishing</option>
+					<option value="home8">Online Scams</option>
+					<option value="home9">Child Exploitation</option>
+					<option value="home10">Social Engineering</option>
+					<option value="home11">Other Please specify</option>
+				  </select>
+				  <button class="btn" onclick="redirectToSelectedOption()">Go</button>
+				</form>
+			  </div>
+		</div>
+	</div>
+	<div class="news-box">
+		<h2 class="news-heading">Steps Should follow while Reporting</h2>
+		<div class="news-content">
+		  <p>
+			1 = Reporting accurate and detailed information when submitting a crime report is crucial for the success of the investigation and the overall effectiveness of law enforcement efforts. It is imperative that individuals provide correct details, ensuring that every piece of information is accurate and reliable. Inaccurate or false information can impede the investigative process, potentially diverting resources away from legitimate cases.
+		  </p>
+		  <p>
+			2 = To maintain the integrity of the reporting system and to deter any misuse, it is essential for individuals to comprehend the gravity of submitting truthful details. Law enforcement agencies take false reporting seriously, as it not only wastes valuable resources but may also have legal consequences. In instances where deliberate misinformation is detected, appropriate actions, as per the law, will be taken against the responsible party.
+		  </p>
+		  <p>
+			3 = The success of crime reporting relies on the collaboration between the public and law enforcement. By fostering a culture of honesty and responsibility, individuals can contribute significantly to creating a safer community for everyone. It is essential to prioritize accuracy and truthfulness in reporting, fostering a relationship of trust between the community and law enforcement agencies.
+		  </p>
+		</div>
+	  </div>
+	  <form action="https://en.wikipedia.org/wiki/Cybercrime" method="get" target="_blank">
+		<input type="submit" name="btnlac" value="Learn about cyber crime" id="btnlac" class="action-button red">
+	  </form>
+	  <button class="chatbot-toggler">
+		<span class="material-symbols-rounded">mode_comment</span>
+		<span class="material-symbols-outlined">close</span>
+	  </button>
+	  <div class="chatbot">
+		<header>
+		  <h2>Chatbot</h2>
+		  <span class="close-btn material-symbols-outlined">close</span>
+		</header>
+		<ul class="chatbox">
+		  <li class="chat incoming">
+			<span class="material-symbols-outlined">smart_toy</span>
+			<p>Hi there 👋<br>How can I help you today?</p>
+		  </li>
+		</ul>
+		<div class="chat-input">
+		  <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+		  <span id="send-btn" class="material-symbols-rounded">send</span>
+		</div>
+	  </div>
+	<script>
+		function redirectToSelectedOption() {
+			var optionValue = document.getElementById("option").value;
+
+			switch (optionValue) {
+				case "home1":
+					window.location.href = "SelectAnOption/Financial Crimes.html";
+					// break;
+				// case "about":
+				// 	window.location.href = "about.html";
+				// 	break;
+				// case "contact":
+				// 	window.location.href = "contact.html";
+				// 	break;
+				// case "admin":
+				// 	window.location.href = "Police Login.html";
+				// 	break;
+				default:
+					alert("You Are Redirecting");
+			}
+		}
+	</script>
+</body>
+</html>
