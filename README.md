@@ -39,35 +39,3 @@ Step 9 = Public Awareness Campaign:
 
 
 
-CrimeREportingSystem/
-|-- SelectAnOption/
-|   |-- FinancialCrimes.html
-|   |-- index.php
-|
-|-- css/
-|   |-- chatbotstyle.css
-|   |-- styles.css
-|
-|-- image/
-|   |-- admin.jpeg
-|   |-- Bank.jpg
-|   |-- checkmark.jpg
-|   |-- img1.jpg
-|   |-- Rajasthan_Police_Logo.jpg
-|
-|-- about.html
-|-- Bank Login.html
-|-- BankData.php
-|-- BankLogin.php
-|-- check_status.html
-|-- delete.php
-|-- fetch_status.php
-|-- generate_report.php
-|-- index.html
-|-- link.php
-|-- logout.php
-|-- Police Login.html
-|-- PoliceData.php
-|-- Policelogin.php
-|-- script.js
-|-- README.md
