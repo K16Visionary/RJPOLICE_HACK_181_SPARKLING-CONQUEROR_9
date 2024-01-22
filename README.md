@@ -6,7 +6,7 @@ Step 1 = Analysis:
           Analyze the types of queries or issues commonly reported to identify areas for improvement.
           
 Step 2 = User Experience Enhancement:
-          We can Implement a user-friendly interactive system to guide the victim
+          We can Implement a user-friendly interactive system to guide the victim 
           Ensure that the menu options are clear, concise, and reflective of common user queries.
 
 Step 3 = Training and Development:
